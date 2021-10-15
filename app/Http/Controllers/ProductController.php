@@ -20,8 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
+        return ProductResource::collection(Product::orderBy('id','desc')->get());
         //
-        return ProductResource::collection(Product::paginate(20));
     }
 
     /**
@@ -29,9 +29,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function search()
+    public function paginate()
     {
-        return ProductResource::collection(Product::all());
+        return ProductResource::collection(Product::paginate(20));
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductController extends Controller
         // 'image'
         $product = new Product();
         $product->title = $request->title;
-        $product->description = $request->description;
+        $product->description = null;
         $product->price = $request->price;
         $product->store = $request->store;
         if($request->image){
@@ -76,6 +76,7 @@ class ProductController extends Controller
         }else{
             $product->image = 'default.jpg';
         }
+        
         if ($request->author_id == -1) {
             $author = new Author();
             $author->name = $request->author_name;
@@ -166,5 +167,10 @@ class ProductController extends Controller
     public function topProducts()
     {
         return ProductResource::collection(Product::orderBy('created_at','asc')->limit(4)->get());
+    }
+
+    public function productNew()
+    {
+        return ProductResource::collection(Product::orderBy('id','desc')->limit(1)->get());
     }
 }

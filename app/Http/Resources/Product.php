@@ -28,24 +28,24 @@ class Product extends JsonResource
         // 'store'
         // 'image'
         return [
-            'id' => $this->id,
-            'author_id' => $this->author_id,
+            // 'id' => $this->id,
+            // 'author_id' => $this->author_id,
             'author' => new Author($this->author),
-            'category_id' => $this->category_id,
+            // 'category_id' => $this->category_id,
             'category' => new Category($this->category),
             'title' => $this->title,
-            'description' => $this->description,
+            // 'description' => $this->description,
             'price' => $this->price,
-            'ratings' => $this->ratings,
-            'reviews' => $this->reviews,
-            'isAddedToCart' => $this->isAddedToCart,
-            'isAddedBtn' => $this->isAddedBtn,
-            'isFavourite' => $this->isFavourite,
-            'quantity' => $this->quantity,
+            // 'ratings' => $this->ratings,
+            // 'reviews' => $this->reviews,
+            // 'isAddedToCart' => $this->isAddedToCart,
+            // 'isAddedBtn' => $this->isAddedBtn,
+            // 'isFavourite' => $this->isFavourite,
+            // 'quantity' => $this->quantity,
             'store' => $this->store,
             'image' => $this->image,
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
-            'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
+            // 'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            // 'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
         ];
     }
 }

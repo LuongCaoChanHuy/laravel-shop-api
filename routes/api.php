@@ -34,5 +34,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth:sanctum'], function () {
     Route::resource('categories',CategoryController::class);
     Route::resource('authors',AuthorController::class);
     Route::resource('orders',OrderController::class);
+
+    //option
+    Route::get('productNew', [ProductController::class, 'productNew']);
 });
 
